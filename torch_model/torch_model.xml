@@ -1,0 +1,536 @@
+<?xml version="1.0" ?>
+<net name="torch_model" version="10">
+	<layers>
+		<layer id="0" name="onnx_initializer_node_4/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="0" shape="568,60" size="136320"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>568</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="input.1" type="Parameter" version="opset1">
+			<data element_type="i32" shape="2"/>
+			<output>
+				<port id="0" precision="I32">
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="2" name="1638/Cast_21139_const" type="Const" version="opset1">
+			<data element_type="i64" offset="136320" shape="" size="8"/>
+			<output>
+				<port id="1" precision="I64"/>
+			</output>
+		</layer>
+		<layer id="3" name="1638" type="Gather" version="opset1">
+			<input>
+				<port id="0">
+					<dim>568</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+				<port id="2"/>
+			</input>
+			<output>
+				<port id="3" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="4" name="onnx_initializer_node_5/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="136328" shape="17,60" size="4080"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>17</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="5" name="input.2" type="Parameter" version="opset1">
+			<data element_type="i32" shape="2"/>
+			<output>
+				<port id="0" precision="I32">
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="6" name="1740/Cast_21147_const" type="Const" version="opset1">
+			<data element_type="i64" offset="136320" shape="" size="8"/>
+			<output>
+				<port id="1" precision="I64"/>
+			</output>
+		</layer>
+		<layer id="7" name="1740" type="Gather" version="opset1">
+			<input>
+				<port id="0">
+					<dim>17</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+				<port id="2"/>
+			</input>
+			<output>
+				<port id="3" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="8" name="18" type="Multiply" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="9" name="onnx_initializer_node_2/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="140408" shape="568,20" size="45440"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>568</dim>
+					<dim>20</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="10" name="1436/Cast_21151_const" type="Const" version="opset1">
+			<data element_type="i64" offset="136320" shape="" size="8"/>
+			<output>
+				<port id="1" precision="I64"/>
+			</output>
+		</layer>
+		<layer id="11" name="1436" type="Gather" version="opset1">
+			<input>
+				<port id="0">
+					<dim>568</dim>
+					<dim>20</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+				<port id="2"/>
+			</input>
+			<output>
+				<port id="3" precision="FP32">
+					<dim>2</dim>
+					<dim>20</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="12" name="onnx_initializer_node_3/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="185848" shape="17,20" size="1360"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>17</dim>
+					<dim>20</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="13" name="1534/Cast_21143_const" type="Const" version="opset1">
+			<data element_type="i64" offset="136320" shape="" size="8"/>
+			<output>
+				<port id="1" precision="I64"/>
+			</output>
+		</layer>
+		<layer id="14" name="1534" type="Gather" version="opset1">
+			<input>
+				<port id="0">
+					<dim>17</dim>
+					<dim>20</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+				<port id="2"/>
+			</input>
+			<output>
+				<port id="3" precision="FP32">
+					<dim>2</dim>
+					<dim>20</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="15" name="19" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>20</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+					<dim>20</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>40</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="16" name="onnx_initializer_node_6/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="187208" shape="60,40" size="9600"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>60</dim>
+					<dim>40</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="17" name="20/WithoutBiases" type="MatMul" version="opset1">
+			<data transpose_a="0" transpose_b="1"/>
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>40</dim>
+				</port>
+				<port id="1">
+					<dim>60</dim>
+					<dim>40</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="18" name="onnx_initializer_node_7/Output_0/Data_/copy_const" type="Const" version="opset1">
+			<data element_type="f32" offset="196808" shape="1,60" size="240"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="19" name="20" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="20" name="21" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="21" name="onnx_initializer_node_8/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="197048" shape="60,60" size="14400"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>60</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="22" name="22/WithoutBiases" type="MatMul" version="opset1">
+			<data transpose_a="0" transpose_b="1"/>
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>60</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="23" name="onnx_initializer_node_9/Output_0/Data_/copy_const" type="Const" version="opset1">
+			<data element_type="f32" offset="211448" shape="1,60" size="240"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="24" name="22" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="25" name="23" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="26" name="onnx_initializer_node_10/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="211688" shape="60,60" size="14400"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>60</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="27" name="24/WithoutBiases" type="MatMul" version="opset1">
+			<data transpose_a="0" transpose_b="1"/>
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>60</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="28" name="onnx_initializer_node_11/Output_0/Data_/copy_const" type="Const" version="opset1">
+			<data element_type="f32" offset="226088" shape="1,60" size="240"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="29" name="24" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="30" name="25" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+					<dim>60</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="31" name="onnx_initializer_node_12/Output_0/Data__const" type="Const" version="opset1">
+			<data element_type="f32" offset="226328" shape="281,120" size="134880"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>281</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="32" name="26/WithoutBiases" type="MatMul" version="opset1">
+			<data transpose_a="0" transpose_b="1"/>
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>120</dim>
+				</port>
+				<port id="1">
+					<dim>281</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>281</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="33" name="onnx_initializer_node_13/Output_0/Data_/copy_const" type="Const" version="opset1">
+			<data element_type="f32" offset="361208" shape="1,281" size="1124"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>281</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="34" name="26" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>281</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>281</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>2</dim>
+					<dim>281</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="35" name="26/sink_port_0" type="Result" version="opset1">
+			<input>
+				<port id="0">
+					<dim>2</dim>
+					<dim>281</dim>
+				</port>
+			</input>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="0" from-port="1" to-layer="3" to-port="0"/>
+		<edge from-layer="1" from-port="0" to-layer="3" to-port="1"/>
+		<edge from-layer="2" from-port="1" to-layer="3" to-port="2"/>
+		<edge from-layer="4" from-port="1" to-layer="7" to-port="0"/>
+		<edge from-layer="5" from-port="0" to-layer="7" to-port="1"/>
+		<edge from-layer="6" from-port="1" to-layer="7" to-port="2"/>
+		<edge from-layer="3" from-port="3" to-layer="8" to-port="0"/>
+		<edge from-layer="7" from-port="3" to-layer="8" to-port="1"/>
+		<edge from-layer="9" from-port="1" to-layer="11" to-port="0"/>
+		<edge from-layer="1" from-port="0" to-layer="11" to-port="1"/>
+		<edge from-layer="10" from-port="1" to-layer="11" to-port="2"/>
+		<edge from-layer="12" from-port="1" to-layer="14" to-port="0"/>
+		<edge from-layer="5" from-port="0" to-layer="14" to-port="1"/>
+		<edge from-layer="13" from-port="1" to-layer="14" to-port="2"/>
+		<edge from-layer="11" from-port="3" to-layer="15" to-port="0"/>
+		<edge from-layer="14" from-port="3" to-layer="15" to-port="1"/>
+		<edge from-layer="15" from-port="2" to-layer="17" to-port="0"/>
+		<edge from-layer="16" from-port="1" to-layer="17" to-port="1"/>
+		<edge from-layer="17" from-port="2" to-layer="19" to-port="0"/>
+		<edge from-layer="18" from-port="1" to-layer="19" to-port="1"/>
+		<edge from-layer="19" from-port="2" to-layer="20" to-port="0"/>
+		<edge from-layer="20" from-port="1" to-layer="22" to-port="0"/>
+		<edge from-layer="21" from-port="1" to-layer="22" to-port="1"/>
+		<edge from-layer="22" from-port="2" to-layer="24" to-port="0"/>
+		<edge from-layer="23" from-port="1" to-layer="24" to-port="1"/>
+		<edge from-layer="24" from-port="2" to-layer="25" to-port="0"/>
+		<edge from-layer="25" from-port="1" to-layer="27" to-port="0"/>
+		<edge from-layer="26" from-port="1" to-layer="27" to-port="1"/>
+		<edge from-layer="27" from-port="2" to-layer="29" to-port="0"/>
+		<edge from-layer="28" from-port="1" to-layer="29" to-port="1"/>
+		<edge from-layer="8" from-port="2" to-layer="30" to-port="0"/>
+		<edge from-layer="29" from-port="2" to-layer="30" to-port="1"/>
+		<edge from-layer="30" from-port="2" to-layer="32" to-port="0"/>
+		<edge from-layer="31" from-port="1" to-layer="32" to-port="1"/>
+		<edge from-layer="32" from-port="2" to-layer="34" to-port="0"/>
+		<edge from-layer="33" from-port="1" to-layer="34" to-port="1"/>
+		<edge from-layer="34" from-port="2" to-layer="35" to-port="0"/>
+	</edges>
+	<meta_data>
+		<MO_version value=""/>
+		<cli_parameters>
+			<blobs_as_inputs value="True"/>
+			<data_type value="float"/>
+			<disable_resnet_optimization value="False"/>
+			<disable_weights_compression value="False"/>
+			<enable_concat_optimization value="False"/>
+			<extensions value="DIR"/>
+			<framework value="onnx"/>
+			<freeze_placeholder_with_value value="{}"/>
+			<generate_deprecated_IR_V2 value="False"/>
+			<generate_deprecated_IR_V7 value="False"/>
+			<generate_experimental_IR_V10 value="True"/>
+			<input_model value="DIR/torch_model.onnx"/>
+			<keep_quantize_ops_in_IR value="True"/>
+			<keep_shape_ops value="False"/>
+			<log_level value="ERROR"/>
+			<mean_scale_values value="{}"/>
+			<mean_values value="()"/>
+			<model_name value="torch_model"/>
+			<move_to_preprocess value="False"/>
+			<output_dir value="DIR"/>
+			<placeholder_data_types value="{}"/>
+			<progress value="False"/>
+			<reverse_input_channels value="False"/>
+			<scale_values value="()"/>
+			<silent value="False"/>
+			<stream_output value="False"/>
+			<unset unset_cli_parameters="batch, disable_fusing, disable_gfusing, finegrain_fusing, input, input_shape, output, placeholder_shapes, scale, transformations_config"/>
+		</cli_parameters>
+	</meta_data>
+</net>
