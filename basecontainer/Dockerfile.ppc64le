@@ -1,12 +1,13 @@
-FROM openvino/ubuntu18_base_cpu:2020.3
+# Copyright (c) IBM Corporation 2016 
+# Distributed under the terms of the Modified BSD License.
 
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
+# Ubuntu image 
+FROM ppc64le/ubuntu:18.04
+
+LABEL maintainer="Ilsiyar Gaynutdinov <ilsiyar_gaynutdinov@ru.ibm.com>"
 ARG NB_USER="jovyan"
-ARG NB_UID="101"
+ARG NB_UID="1000"
 ARG NB_GID="100"
-
-# Fix DL4006
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
@@ -68,14 +69,15 @@ RUN mkdir /home/$NB_USER/work && \
 
 # Install conda as jovyan and check the md5 sum provided on the download site
 ENV MINICONDA_VERSION=4.8.2 \
-    MINICONDA_MD5=87e77f097f6ebb5127c77662dfc3165e \
+    MINICONDA_MD5=e50662a93f3f5e56ef2d3fdfaf2f8e91 \
     CONDA_VERSION=4.8.2
 
-WORKDIR /tmp
-RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-py37_${MINICONDA_VERSION}-Linux-x86_64.sh && \
-    echo "${MINICONDA_MD5} *Miniconda3-py37_${MINICONDA_VERSION}-Linux-x86_64.sh" | md5sum -c - && \
-    /bin/bash Miniconda3-py37_${MINICONDA_VERSION}-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-py37_${MINICONDA_VERSION}-Linux-x86_64.sh && \
+# Install conda as jovyan
+RUN cd /tmp && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-py37_${MINICONDA_VERSION}-Linux-ppc64le.sh && \
+    echo "${MINICONDA_MD5} *Miniconda3-py37_${MINICONDA_VERSION}-Linux-ppc64le.sh" | md5sum -c - && \
+    /bin/bash Miniconda3-py37_${MINICONDA_VERSION}-Linux-ppc64le.sh -f -b -p $CONDA_DIR && \
+    rm -rf Miniconda3-py37_${MINICONDA_VERSION}-Linux-ppc64le.sh && \
     echo "conda ${CONDA_VERSION}" >> $CONDA_DIR/conda-meta/pinned && \
     conda config --system --prepend channels conda-forge && \
     conda config --system --set auto_update_conda false && \
@@ -107,7 +109,7 @@ RUN conda install --quiet --yes 'tini=0.18.0' && \
 RUN conda install --quiet --yes \
     'notebook=6.0.3' \
     'jupyterhub=1.1.0' \
-    'jupyterlab=2.1.3' && \
+    'jupyterlab=2.1.1' && \
     conda clean --all -f -y && \
     npm cache clean --force && \
     jupyter notebook --generate-config && \
@@ -132,5 +134,3 @@ RUN fix-permissions /etc/jupyter/
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
-
-WORKDIR $HOME
