@@ -1,0 +1,13 @@
+version: '3'
+services: 
+  jupyter:
+    image: techlab.azurecr.io/jupyter/openvino-notebook:v1
+    container_name: vino
+    environment: 
+      TZ: "Asia/Tokyo"
+      JUPYTER_ENABLE_LAB: "yes"
+      USE_DAAL4PY_SKLEARN: "YES"
+    ports:
+      - "88:8888"
+    volumes:
+      - ./work/:/home/jovyan/work/:z
